@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header :upperNavbar="headerMenu.upperNavbar" :lowerNavbar="headerMenu.lowerNavbar"/>
     <Main />
     <Footer />
   </div>
@@ -17,6 +17,14 @@ export default {
     Header,
     Main,
     Footer
+  },
+  data() {
+    return {
+      headerMenu: {
+        upperNavbar: ['sign in', 'about us', 'contact us', 'buy now'],
+        lowerNavbar: ['home', 'elements', 'features', 'pages', 'portfolio', 'blog', 'shop']
+      }
+    };
   }
 }
 </script>
