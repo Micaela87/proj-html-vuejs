@@ -2,7 +2,7 @@
   <div id="app">
     <Header :upperNavbar="headerMenu.upperNavbar" :lowerNavbar="headerMenu.lowerNavbar"/>
     <Main />
-    <Footer :aboutTheBlog="footerMenu.aboutTheBlog" :recentPosts="footerMenu.recentPosts" :recentComments="footerMenu.recentComments" :categories="footerMenu.categories"/>
+    <Footer :aboutTheBlog="footerMenu.aboutTheBlog" :recentPosts="footerMenu.recentPosts" :recentComments="footerMenu.recentComments" :categories="footerMenu.categories" :lowerNavbar="footerMenu.lowerNavbar"/>
   </div>
 </template>
 
@@ -50,7 +50,8 @@ export default {
             date: '12:55 AM Dec 19th'
           }
         ],
-        categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel', 'business', 'architecture', 'reviews', 'sports', 'videos', 'technology', 'design']
+        categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel', 'business', 'architecture', 'reviews', 'sports', 'videos', 'technology', 'design'],
+        lowerNavbar: ['FAQ\'s', 'Sitemap', 'Contact us']
       }
     };
   }

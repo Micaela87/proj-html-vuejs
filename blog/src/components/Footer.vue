@@ -37,6 +37,20 @@
     </section>
     <section id="lower-footer">
       <!-- lower footer -->
+      <div class="container container-flex">
+        <div class="container-flex">
+          <img src="../assets/img/logo-footer.png" alt="blog logo">
+          <span>&copy; Copyright 2020 All Rights Reserved</span>
+        </div>
+        <div>
+          <ul>
+            <li v-for="(menu, k) in lowerNavbar" :key="k"><a href="#"><font-awesome-icon :icon="['fas', 'chevron-right']" class="arrow-right" size="xs"/>{{ menu }}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="chat">
+        <font-awesome-icon :icon="['fas', 'chevron-up']" class="arrow-up" size="xs"/>
+      </div>
     </section>
   </footer>
 </template>
@@ -48,7 +62,8 @@ export default {
     aboutTheBlog: Array,
     recentPosts: Array,
     recentComments: Array,
-    categories: Array
+    categories: Array,
+    lowerNavbar: Array
   }
 }
 </script>
@@ -109,10 +124,11 @@ export default {
       .date {
         color: #535558;
         margin-top: 0.9rem;
+        font-size: 1rem;
       }
 
       .comments {
-        line-height: 1.4;
+        line-height: 1.8;
         margin-top: 1rem;
       }
 
@@ -141,10 +157,10 @@ export default {
         display: block;
         background-color: #000000;
         color: white;
-        padding: 1rem 2rem;
+        padding: 0.5rem 2rem;
         font-weight: bolder;
         margin-right: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         text-decoration: none;
       }
     }
@@ -154,6 +170,56 @@ export default {
   #lower-footer {
     background-color: #1c2023;
     height: 10rem;
+    font-size: 1.2rem;
+    color: #535558;
+    position: relative;
+
+    .container-flex {
+      align-items: center;
+      height: 100%;
+    }
+
+    img {
+      height: 4rem;
+      margin-right: 3rem;
+    }
+
+    .arrow-right {
+      margin-right: 0.5rem;
+    }
+
+    ul {
+      margin-right: 13rem;
+
+      li {
+        display: inline-block;
+        margin-right: 1rem;
+
+          a {
+          color: #535558;
+          font-size: 1.2rem;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .chat {
+      position: absolute;
+      right: 1rem;
+      bottom: 0;
+      background-color: #373839;
+      height: 5rem;
+      width: 5rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .arrow-up {
+        color: #b4b5b6;
+      }
+    }
   }
 
 </style>
