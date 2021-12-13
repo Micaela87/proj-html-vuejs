@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: 'Headeer',
+  name: 'Footer',
   props: {
     aboutTheBlog: Array,
     recentPosts: Array,

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <section>
+    <section id="posts">
       <!-- 6 components with v-for -->
+      <Posts />
     </section>
     <section>
       <!-- 3 columns -->
@@ -32,12 +33,18 @@
 </template>
 
 <script>
+import Posts from "./Posts.vue"
 export default {
-  name: 'Headeer',
+  name: 'Main',
+  components: {
+    Posts
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+  #posts {
+    background-color: #f7f7f7;
+  }
 </style>
