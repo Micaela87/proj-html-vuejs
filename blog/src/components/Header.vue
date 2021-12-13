@@ -1,12 +1,20 @@
 <template>
-  <div>
-
-  </div>
+  <header>
+    <nav>
+      <!-- upper header -->
+    </nav>
+    <section>
+      <!-- central header with logo -->
+    </section>
+    <nav>
+      <!-- lower header with menu -->
+    </nav>
+  </header>
 </template>
 
 <script>
 export default {
-  name: 'Headeer',
+  name: 'Header',
 }
 </script>
 

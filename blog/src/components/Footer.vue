@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <footer>
+    <!-- 4 columns upper footer-->
+    <section>
 
-  </div>
+    </section>
+    <section>
+      <!-- lower footer -->
+    </section>
+  </footer>
 </template>
 
 <script>
