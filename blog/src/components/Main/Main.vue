@@ -22,8 +22,15 @@
     <section>
       <div class="container container-flex">
           <!-- blog posts 5 components with v-for -->
-          <div>
+          <div class="col-xl">
             <PostOverview v-for="(post, x) in postsOverview" :key="x" :postOverview="post" />
+            <div class="next-page">
+              <div class="page"><font-awesome-icon :icon="['fas', 'chevron-left']" size="xs"/></div>
+              <span class="page selected">1</span>
+              <span class="page">2</span>
+              <span class="page">3</span>
+              <div class="page"><font-awesome-icon :icon="['fas', 'chevron-right']" size="xs"/></div>
+            </div>
           </div>      
           <!-- links to social media -->
       </div>
@@ -168,7 +175,32 @@ export default {
           padding: 2rem 0;
           font-size: 1.5rem;
       }
+    } 
+  }
+
+  .col-xl {
+    width: 70%;
+
+    .next-page {
+    text-align: right;
+    padding: 4rem 0;
+
+      .page {
+        display: inline-block;
+        text-align: center;
+        // width: 2rem;
+        // height: 2rem;
+        padding: 1.5rem 2rem;
+        border: 2px solid #f7f7f7;
+        font-size: 1.2rem;
+        color: #58acdb;
+        font-weight: bold;
+      }
+
+      .selected {
+        color: white;
+        background-color: #58acdb;
+      }
     }
-    
   }
 </style>

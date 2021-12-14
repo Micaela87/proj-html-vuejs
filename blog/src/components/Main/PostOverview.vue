@@ -62,7 +62,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     .col {
-        width: 70%;
         padding: 2rem 0;
 
         img {
