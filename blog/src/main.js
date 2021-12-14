@@ -8,11 +8,12 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faFolder } from '@fortawesome/free-regular-svg-icons';
 import { faComments } from '@fortawesome/free-regular-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.config.productionTip = false;
 
-library.add(faSearch, faChevronRight, faChevronUp, faChevronLeft, faUser, faFolder, faComments);
+library.add(faSearch, faChevronRight, faChevronUp, faChevronLeft, faUser, faFolder, faComments, faTwitter);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

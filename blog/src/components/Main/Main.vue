@@ -33,6 +33,27 @@
             </div>
           </div>      
           <!-- links to social media -->
+          <div class="col-xs">
+            <div class="twitter">
+              <h3>latest from twitter</h3>
+              <div class="container-flex" v-for="(twitterPost, z) in twitterPosts" :key="z">
+                <font-awesome-icon :icon="['fab', 'twitter']" size="2x" class="twitter-icon"/>
+                <div>
+                  <p>{{ twitterPost.content }}</p>
+                  <span>{{ twitterPost.date }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="instagram">
+              <h3>photos from instagram</h3>
+              <h3>tags</h3>
+            </div>
+            <div class="facebook">
+              <h3>find us on facebook</h3>
+            </div>
+            
+            
+          </div>
       </div>
     </section>
   </div>
@@ -137,6 +158,16 @@ export default {
               categories: 'travel, lifestyle',
               numberOfComments: '12'
             }
+          ],
+          twitterPosts: [
+            {
+              content: 'If you have any suggestions for the next updates, let us know.',
+              date: '01:05 PM, Sep 18th'
+            },
+            {
+              content: 'We have just updated Porto Admin. Check the changelog for more information.',
+              date: '01:04 PM, Sep 18th'
+            }
           ]
       };
   }
@@ -200,6 +231,41 @@ export default {
       .selected {
         color: white;
         background-color: #58acdb;
+      }
+    }
+  }
+
+  .col-xs {
+    width: 30%;
+    padding: 2rem;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .twitter {
+
+      .container-flex {
+        justify-content: flex-start;
+        margin: 2rem 0;
+
+        p {
+          font-size: 1.4rem;
+          color: #8b8b8b;
+          line-height: 1.4;
+          margin-bottom: 0.5rem;
+        }
+
+        span {
+          color: #3aa2d7;
+          font-size: 1.2rem;
+        }
+
+        .twitter-icon {
+          margin-right: 2rem;
+        }
       }
     }
   }
