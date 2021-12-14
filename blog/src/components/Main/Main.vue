@@ -196,14 +196,17 @@ export default {
 
   #categories {
     background-color: #0088cc;
-    padding: 4rem 0;
+    // padding: 4rem 0;
+    height: 14rem;
 
     .container-flex {
       align-items: center;
+      height: 100%;
     }
 
     span {
       width: calc(100% / 8);
+      // height: 5.5rem;
 
       a {
           display: block;
@@ -214,7 +217,11 @@ export default {
           padding: 2rem 0;
           font-size: 1.5rem;
       }
-    } 
+    }
+
+    span:hover {
+      border: 10px solid #0088cc;
+    }
   }
 
   .col-xl {
