@@ -1,28 +1,33 @@
 <template>
   <div class="col">
-      <img src="../../assets/img/blog-54.jpg" alt="">
+      <div v-if="postOverview.img.length === 1">
+        <img :src="require('@/assets/img/' + postOverview.img[0])" :alt="postOverview.title">
+      </div>
+      <div class="container-flex collage" v-else>
+          <img :src="require('@/assets/img/' + image)" alt="" v-for="(image, i) in postOverview.img" :key="i">
+      </div>
       <div class="container-flex">
           <div class="date">
-              <div class="day">12</div>
-              <div class="month">Jan</div>
+              <div class="day">{{ day }}</div>
+              <div class="month">{{ month }}</div>
           </div>
           <div class="details">
-            <h2>how to make friends as a grown-up</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! [...]</p>
+            <h2>{{ postOverview.title }}</h2>
+            <p>{{ content }} [...]</p>
             <div class="container-flex">
                 <div>
                     <span>
                         <font-awesome-icon :icon="['far', 'user']" size="1x" class="icon"/>
                         By 
-                        <a href="">john doe</a>
+                        <a href="">{{ postOverview.author }}</a>
                     </span>
                     <span>
                         <font-awesome-icon :icon="['far', 'folder']" size="1x" class="icon"/>
-                        <a href="">lifestyle, travel</a>
+                        <a href="">{{ postOverview.categories }}</a>
                     </span>
                     <span>
                         <font-awesome-icon :icon="['far', 'comments']" size="1x" class="icon"/>
-                        <a href="">12 comments</a>
+                        <a href="">{{ postOverview.numberOfComments }} comments</a>
                     </span>
                 </div>
                 <button>read more</button>
@@ -35,6 +40,22 @@
 <script>
 export default {
   name: 'PostOverview',
+  props: {
+      postOverview: Object
+  },
+  computed: {
+      day() {
+          let day = this.postOverview.date.split(' ');
+          return day[0];
+      },
+      month() {
+          let month = this.postOverview.date.split(' ');
+          return month[1].substring(0, 3);
+      },
+      content() {
+          return this.postOverview.content.substring(0, 5000)
+      }
+  }
 }
 </script>
 
@@ -47,6 +68,16 @@ export default {
         img {
             width: 100%;
             margin-bottom: 1.5rem;
+        }
+
+        .collage {
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+
+            img {
+                width: calc(100% / 3);
+                margin: 0;
+            }
         }
         
         .date {

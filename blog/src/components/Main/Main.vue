@@ -22,7 +22,9 @@
     <section>
       <div class="container container-flex">
           <!-- blog posts 5 components with v-for -->
-          <PostOverview />      
+          <div>
+            <PostOverview v-for="(post, x) in postsOverview" :key="x" :postOverview="post" />
+          </div>      
           <!-- links to social media -->
       </div>
     </section>
@@ -81,7 +83,54 @@ export default {
                   img: 'blog-51.jpg'
               }
           ],
-          categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel']
+          categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel'],
+          postsOverview: [
+            {
+              img: ['blog-54.jpg'],
+              date: '12 January',
+              title: 'how to make friends as a grown-up',
+              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+              author: 'john doe',
+              categories: 'lifestyle, travel',
+              numberOfComments: '12'
+            },
+            {
+              img: ['blog-55-1.jpg'],
+              date: '12 January',
+              title: 'simple ways to have a pretty face',
+              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+              author: 'john doe',
+              categories: 'photography, travel',
+              numberOfComments: '12'
+            },
+            {
+              img: ['blog-56-1.jpg'],
+              date: '12 January',
+              title: 'ranking the greatest players in basketball',
+              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+              author: 'john doe',
+              categories: 'sports, business',
+              numberOfComments: '12'
+            },
+            {
+              img: ['blog-58-1.jpg'],
+              date: '12 January',
+              title: 'top camper trailer towing tips',
+              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+              author: 'john doe',
+              categories: 'travel, lifestyle',
+              numberOfComments: '12'
+            },
+            {
+              img: ['blog-13.jpg', 'blog-16.jpg', 'blog-20.jpg', 'blog-23.jpg', 'blog-29.jpg', 'blog-40.jpg'],
+              date: '8 January',
+              title: '10 best travel tips after 5 years traveling the world',
+              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+              author: 'john doe',
+              categories: 'travel, lifestyle',
+              numberOfComments: '12'
+            }
+          ]
       };
   }
 }
