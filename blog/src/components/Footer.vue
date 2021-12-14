@@ -2,6 +2,10 @@
   <footer>
     <!-- 4 columns upper footer-->
     <section id="upper-footer">
+      <div class="label">
+        <div class="shadow"></div>
+        <div class="get-in-touch">Get in Touch</div>
+      </div>
       <div class="container container-flex">
         <div class="col">
           <h3>about the blog</h3>
@@ -72,7 +76,35 @@ export default {
 <style scoped lang="scss">
   #upper-footer {
     background-color: #212529;
-    padding: 2rem 0;
+    padding: 4rem 0 2rem 0;
+
+    .label {
+      position: relative;
+
+      .shadow {
+          width: 0; 
+          height: 0; 
+          border-left: 20px solid transparent;
+          border-right: 15px solid #005580;
+          border-top: 20px solid transparent;
+
+          position: absolute;
+          top: -6rem;
+          left: 6rem;
+      }
+
+      .get-in-touch {
+        position: absolute;
+        top: -6rem;
+        left: 9.5rem;
+        font-size: 2rem;
+        color: white;
+        background-color: #0088cc;
+        padding: 1rem 1.5rem;
+        // height: 10rem;
+      }
+
+    }
 
     .col {
       width: 23%;
