@@ -1,0 +1,50 @@
+<template>
+    <div>
+        <div class="container-flex" v-for="(post, i) in posts" :key="i" :class="i < posts.length - 1 ? 'with-border' : ''">
+            <img :src="require('@/assets/img/' + post.img)" :alt="post.title">
+            <div>
+                <h4>{{ post.title }}</h4>
+                <span>{{ post.date }}</span>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'PopularRecentPosts',
+  props: {
+      posts: Array
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+    .container-flex {
+        justify-content: flex-start;
+        align-items: center;
+
+        .with-border {
+            border-bottom: 3px solid #fdfdfd;
+        }
+
+        h4, span {
+            text-transform: capitalize;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        span {
+            font-size: 1.2rem;
+            color: #b1bacb;
+        }
+    }
+
+    img {
+        width: 5rem;
+        margin: 1rem 1rem 1rem 0;
+    }
+</style>
