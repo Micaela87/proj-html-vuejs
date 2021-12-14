@@ -19,7 +19,7 @@
           <font-awesome-icon :icon="['fas', 'chevron-right']" size="lg"/>
       </div>
     </section>
-    <section>
+    <section id="post-overview">
       <div class="container container-flex">
           <!-- blog posts 5 components with v-for -->
           <div class="col-xl">
@@ -196,7 +196,6 @@ export default {
 
   #categories {
     background-color: #0088cc;
-    // padding: 4rem 0;
     height: 14rem;
 
     .container-flex {
@@ -206,7 +205,6 @@ export default {
 
     span {
       width: calc(100% / 8);
-      // height: 5.5rem;
 
       a {
           display: block;
@@ -222,6 +220,10 @@ export default {
     span:hover {
       border: 10px solid #0088cc;
     }
+  }
+
+  #post-overview {
+    padding-top: 2rem;
   }
 
   .col-xl {
