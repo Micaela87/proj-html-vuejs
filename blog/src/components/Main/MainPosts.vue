@@ -36,7 +36,7 @@ export default {
             top: 0;
             left: 0;
             width: 100%;
-            min-height: 100%;
+            min-height: 99%;
             background-color: rgba(0, 0, 0, 0.5);
 
             .post-content {
@@ -71,6 +71,10 @@ export default {
                 }
             }
         }
+    }
+
+    .post-card:hover p {
+        display: block;
     }
 
     .post-card[data-v-1ee32770] {
