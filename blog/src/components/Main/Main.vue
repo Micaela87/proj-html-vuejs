@@ -46,7 +46,11 @@
             </div>
             <div class="instagram">
               <h3>photos from instagram</h3>
+              <div class="container-flex">
+                <img :src="require('@/assets/img/instagram-0' + n + '.jpg')" alt="" v-for="n in 6" :key="n">
+              </div>
               <h3>tags</h3>
+              <span v-for="(tag, k) in instagramTags" :key="k">{{ tag.toUpperCase() }}</span>
             </div>
             <div class="facebook">
               <h3>find us on facebook</h3>
@@ -168,7 +172,8 @@ export default {
               content: 'We have just updated Porto Admin. Check the changelog for more information.',
               date: '01:04 PM, Sep 18th'
             }
-          ]
+          ],
+          instagramTags: ['design', 'brands', 'video', 'business', 'travel']
       };
   }
 }
@@ -266,6 +271,30 @@ export default {
         .twitter-icon {
           margin-right: 2rem;
         }
+      }
+    }
+
+    .instagram {
+      padding-bottom: 6rem;
+
+      .container-flex {
+        flex-wrap: wrap;
+        padding: 2rem 0;
+
+        img {
+          width: calc(100% / 3);
+        }
+      }
+
+      span {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin: 1.5rem 1rem 1rem 0;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: bold;
+        border-radius: 1.2rem;
+        background-color: black;
       }
     }
   }
