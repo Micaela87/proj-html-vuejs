@@ -52,8 +52,11 @@
               <h3>tags</h3>
               <span v-for="(tag, k) in instagramTags" :key="k">{{ tag.toUpperCase() }}</span>
             </div>
-            <div class="facebook">
+            <div>
               <h3>find us on facebook</h3>
+              <div class="facebook-profile container-flex">
+                <a href="#">Okler Themes</a>
+              </div>
             </div>
             
             
@@ -224,8 +227,6 @@ export default {
       .page {
         display: inline-block;
         text-align: center;
-        // width: 2rem;
-        // height: 2rem;
         padding: 1.5rem 2rem;
         border: 2px solid #f7f7f7;
         font-size: 1.2rem;
@@ -295,6 +296,20 @@ export default {
         font-weight: bold;
         border-radius: 1.2rem;
         background-color: black;
+      }
+    }
+
+    .facebook-profile {
+      height: 5rem;
+      border-left: 7px solid #eeeeee;
+      align-items: center;
+      padding-left: 2rem;
+      margin: 2rem 0;
+
+      a {
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #0088cc;
       }
     }
   }
