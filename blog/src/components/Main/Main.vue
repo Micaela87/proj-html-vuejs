@@ -11,8 +11,13 @@
     <section>
       <RelevantPosts />
     </section>
-    <section>
+    <section id="categories">
       <!-- main topics -->
+      <div class="container container-flex">
+          <font-awesome-icon :icon="['fas', 'chevron-left']" size="lg"/>
+          <span v-for="(category, y) in categories" :key="y"><a href="#">{{ category.toUpperCase() }}</a></span>
+          <font-awesome-icon :icon="['fas', 'chevron-right']" size="lg"/>
+      </div>
     </section>
     <section>
       <!-- 2 columns -->
@@ -75,7 +80,8 @@ export default {
                   briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
                   img: 'blog-51.jpg'
               }
-          ]
+          ],
+          categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel']
       };
   }
 }
@@ -93,4 +99,27 @@ export default {
     }
   }
 
+  #categories {
+    background-color: #0088cc;
+    padding: 4rem 0;
+
+    .container-flex {
+      align-items: center;
+    }
+
+    span {
+      width: calc(100% / 8);
+
+      a {
+          display: block;
+          text-decoration: none;
+          text-align: center;
+          color: white;
+          background-color: black;
+          padding: 2rem 0;
+          font-size: 1.5rem;
+      }
+    }
+    
+  }
 </style>
