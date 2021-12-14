@@ -20,12 +20,10 @@
       </div>
     </section>
     <section>
-      <!-- 2 columns -->
-      <div>
-        <!-- blog posts 5 components with v-for -->       
-      </div>
-      <div>
-        <!-- links to social media -->
+      <div class="container container-flex">
+          <!-- blog posts 5 components with v-for -->
+          <PostOverview />      
+          <!-- links to social media -->
       </div>
     </section>
   </div>
@@ -34,12 +32,14 @@
 <script>
 import MainPosts from "./MainPosts.vue";
 import RelevantPosts from "./RelevantPosts.vue";
+import PostOverview from "./PostOverview.vue";
 
 export default {
   name: 'Main',
   components: {
     MainPosts,
-    RelevantPosts
+    RelevantPosts,
+    PostOverview
   },
   data() {
       return {
