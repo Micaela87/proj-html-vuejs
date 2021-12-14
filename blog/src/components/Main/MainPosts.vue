@@ -71,10 +71,10 @@ export default {
                 }
             }
         }
-    }
 
-    .post-card:hover p {
-        display: block;
+        .overlay:hover p {
+            display: block;
+        }
     }
 
     .post-card[data-v-1ee32770] {

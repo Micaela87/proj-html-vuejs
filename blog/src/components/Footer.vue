@@ -94,6 +94,7 @@ export default {
       }
 
       .get-in-touch {
+        font-family: 'Shadows Into Light';
         position: absolute;
         top: -6rem;
         left: 9.5rem;
