@@ -1,11 +1,12 @@
 <template>
   <div>
     <section id="posts">
-      <div class="container container-flex">
+      <div class="container container-flex align-items-center">
         <MainPosts 
           v-for="(post, i) in posts"
           :key="i"
-          :singlePost="post"/>
+          :singlePost="post"
+          :onlyOnePost="false"/>
       </div>
     </section>
     <section>
@@ -13,10 +14,10 @@
     </section>
     <section id="categories">
       <!-- main topics -->
-      <div class="container container-flex">
-          <font-awesome-icon :icon="['fas', 'chevron-left']" size="lg"/>
+      <div class="container container-flex align-items-center">
+          <font-awesome-icon :icon="['fas', 'chevron-left']" size="lg" @click="showPreviousCategory"/>
           <span v-for="(category, y) in categories" :key="y"><a href="#">{{ category.toUpperCase() }}</a></span>
-          <font-awesome-icon :icon="['fas', 'chevron-right']" size="lg"/>
+          <font-awesome-icon :icon="['fas', 'chevron-right']" size="lg" @click="showNextCategory"/>
       </div>
     </section>
     <section id="post-overview">
@@ -36,7 +37,7 @@
           <div class="col-xs">
             <div class="twitter">
               <h3>latest from twitter</h3>
-              <div class="container-flex" v-for="(twitterPost, z) in twitterPosts" :key="z">
+              <div class="container-flex justify-flex-start" v-for="(twitterPost, z) in twitterPosts" :key="z">
                 <font-awesome-icon :icon="['fab', 'twitter']" size="2x" class="twitter-icon"/>
                 <div>
                   <p>{{ twitterPost.content }}</p>
@@ -78,47 +79,13 @@ export default {
     RelevantPosts,
     PostOverview
   },
+  props: {
+    allCategories: Array
+  },
   data() {
       return {
-          // posts: [
-          //     {
-          //         category: 'photography',
-          //         title: 'how to take better concert pictures in 30 seconds',
-          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-          //         img: 'blog-46.jpg'
-          //     },
-          //     {
-          //         category: 'gadgets',
-          //         title: 'gadgets that make your smartphone even smarter',
-          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-          //         img: 'blog-47.jpg'
-          //     },
-          //     {
-          //         category: 'travel',
-          //         title: '20 top-rated tourist attractions in manhattan',
-          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-          //         img: 'blog-48.jpg'
-          //     },
-          //     {
-          //         category: 'lifestyle',
-          //         title: 'the best way to ride a motorcycle',
-          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-          //         img: 'blog-49.jpg'
-          //     },
-          //     {
-          //         category: 'travel',
-          //         title: '5 fun things to do at the beach',
-          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-          //         img: 'blog-50.jpg'
-          //     },
-          //     {
-          //         category: 'recipes',
-          //         title: 'amazingly fresh fruit and herb drinks for summer',
-          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-          //         img: 'blog-51.jpg'
-          //     }
-          // ],
-          categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel'],
+          clicked: 0,
+          lastIndexCategory: 6,
           allPosts: [
             {
               "id": "1",
@@ -127,7 +94,7 @@ export default {
               "category": "lifestyle, travel",
               "thumb_img": "",
               "img": ["blog-54.jpg"],
-              "date": "12 January, 2019 01:00",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -139,7 +106,7 @@ export default {
               "category": "photography, travel",
               "thumb_img": "blog-55.jpg",
               "img": ["blog-55-1.jpg"],
-              "date": "12 January, 2019 01:10",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "1000"
@@ -151,7 +118,7 @@ export default {
               "category": "sports, business",
               "thumb_img": "blog-56.jpg",
               "img": ["blog-56-1.jpg"],
-              "date": "12 January, 2019 01:20",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "999"
@@ -163,7 +130,7 @@ export default {
               "category": "travel, lifestyle",
               "thumb_img": "blog-58.jpg",
               "img": ["blog-58-1.jpg"],
-              "date": "12 January, 2019 01:30",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "997"
@@ -175,7 +142,7 @@ export default {
               "category": "travel, lifestyle",
               "thumb_img": "",
               "img": ["blog-13.jpg", "blog-16.jpg", "blog-20.jpg", "blog-23.jpg", "blog-29.jpg", "blog-40.jpg"],
-              "date": "8 January, 2019 01:40",
+              "date": "January 8, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -187,7 +154,7 @@ export default {
               "category": "fashion, lifestyle",
               "thumb_img": "blog-57.jpg",
               "img": "",
-              "date": "12 January, 2019 01:50",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "998"
@@ -199,7 +166,7 @@ export default {
               "category": "travel, lifestyle",
               "thumb_img": "blog-59.jpg",
               "img": "",
-              "date": "12 January, 2019 02:00",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "996"
@@ -211,7 +178,7 @@ export default {
               "category": "lifestyle",
               "thumb_img": "blog-65.jpg",
               "img": "",
-              "date": "12 January, 2019 23:59",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -223,7 +190,7 @@ export default {
               "category": "recipes",
               "thumb_img": "blog-66-1.jpg",
               "img": "",
-              "date": "12 January, 2019 23:58",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -235,7 +202,7 @@ export default {
               "category": "gadgets, lifestyle",
               "thumb_img": "blog-67.jpg",
               "img": "",
-              "date": "12 January, 2019 23:57",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -247,7 +214,7 @@ export default {
               "category": "gadgets, lifestyle",
               "thumb_img": "blog-68.jpg",
               "img": "",
-              "date": "12 January, 2019 23:56",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -259,7 +226,7 @@ export default {
               "category": "recipes",
               "thumb_img": "blog-69.jpg",
               "img": "",
-              "date": "12 January, 2019 23:55",
+              "date": "January 12, 2019",
               "author": "john doe",
               "comments": "12",
               "likes": "0"
@@ -356,6 +323,29 @@ export default {
     },
     postsOverview() {
       return this.allPosts.slice(0, 5);
+    },
+    categories() {
+      return this.allCategories.slice(this.clicked, this.lastIndexCategory);
+    }
+  },
+  methods: {
+    showPreviousCategory() {
+      if (this.lastIndexCategory === 6) {
+        this.clicked = this.allCategories.length - 6;
+        this.lastIndexCategory = this.allCategories.length;
+      } else {
+        --this.clicked;
+        --this.lastIndexCategory;
+      }
+    },
+    showNextCategory() {
+      if (this.lastIndexCategory === this.allCategories.length) {
+        this.clicked = 0;
+        this.lastIndexCategory = 6;
+      } else {
+        ++this.clicked;
+        ++this.lastIndexCategory;
+      }
     }
   }
 }
@@ -368,7 +358,6 @@ export default {
 
       .container-flex {
       flex-wrap: wrap;
-      align-items: center;
       padding: 2rem 0;
     }
   }
@@ -378,7 +367,6 @@ export default {
     height: 14rem;
 
     .container-flex {
-      align-items: center;
       height: 100%;
     }
 
@@ -435,16 +423,9 @@ export default {
     width: 30%;
     padding: 2rem;
 
-    h3 {
-      text-transform: uppercase;
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
-
     .twitter {
 
       .container-flex {
-        justify-content: flex-start;
         margin: 2rem 0;
 
         p {
