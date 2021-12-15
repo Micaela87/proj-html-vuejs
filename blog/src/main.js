@@ -1,13 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faFolder } from '@fortawesome/free-regular-svg-icons';
-import { faComments } from '@fortawesome/free-regular-svg-icons';
+import { faSearch, faChevronRight, faChevronLeft, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faFolder, faComments } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 

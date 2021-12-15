@@ -1,5 +1,5 @@
 <template>
-        <div class="post-card">
+        <div :class="onlyOnePost ? 'single-post-card' : 'post-card'">
             <img :src="require('@/assets/img/' + singlePost.img)" :alt="singlePost.post_title">
             <div class="overlay">
                 <div class="post-content">
@@ -15,7 +15,8 @@
 export default {
   name: 'MainPosts',
   props: {
-      singlePost: Object
+      singlePost: Object,
+      onlyOnePost: Boolean
   }
 }
 </script>
@@ -24,6 +25,13 @@ export default {
 <style scoped lang="scss">
     .post-card {
         width: 32%;
+    }
+
+    .single-post-card {
+        width: 100%;
+    }
+    
+    .post-card, .single-post-card {
         position: relative;
         margin: 1.5rem 0;
 
@@ -56,9 +64,7 @@ export default {
                 }
 
                 h2 {
-                    text-transform: capitalize;
                     color: white;
-                    font-size: 2rem;
                     margin: 1rem 0;
                 }
 
@@ -77,7 +83,7 @@ export default {
         }
     }
 
-    .post-card[data-v-1ee32770] {
-        width: 100%;
-    }
+    // .post-card[data-v-1ee32770] {
+    //     width: 100%;
+    // }
 </style>

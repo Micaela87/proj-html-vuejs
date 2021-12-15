@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container-flex" v-for="(post, i) in posts" :key="i" :class="i < posts.length - 1 ? 'with-border' : ''">
+        <div class="container-flex align-items-center justify-flex-start" v-for="(post, i) in posts" :key="i" :class="i < posts.length - 1 ? 'with-border' : ''">
             <img :src="require('@/assets/img/' + post.thumb_img)" :alt="post.post_title">
             <div>
                 <h4>{{ post.post_title }}</h4>
@@ -15,18 +15,16 @@ export default {
   name: 'PopularRecentPosts',
   props: {
       posts: Array
-  },
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     .container-flex {
-        justify-content: flex-start;
-        align-items: center;
 
         .with-border {
-            border-bottom: 3px solid #fdfdfd;
+            border-bottom: 1px solid #eeeeee;
         }
 
         h4, span {
@@ -34,7 +32,7 @@ export default {
         }
 
         h4 {
-            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         span {

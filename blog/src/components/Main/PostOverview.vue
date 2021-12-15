@@ -14,7 +14,7 @@
           <div class="details">
             <h2>{{ postOverview.post_title }}</h2>
             <p>{{ content }} [...]</p>
-            <div class="container-flex">
+            <div class="container-flex align-items-center">
                 <div>
                     <span>
                         <font-awesome-icon :icon="['far', 'user']" size="1x" class="icon"/>
@@ -46,11 +46,14 @@ export default {
   computed: {
       day() {
           let day = this.postOverview.date.split(' ');
-          return day[0];
+          if (day[1].length === 3) {
+              return day[1].substring(0, 2)
+          }
+          return day[1].substring(0, 1);
       },
       month() {
           let month = this.postOverview.date.split(' ');
-          return month[1].substring(0, 3);
+          return month[0].substring(0, 3);
       },
       content() {
           return this.postOverview.post_content.substring(0, 5000)
@@ -80,25 +83,25 @@ export default {
         }
         
         .date {
-            width: 10%;
-            padding-right: 3rem;
+            width: 8%;
+            margin-right: 3rem;
 
             .day, .month {
                 text-align: center;
             }
 
             .day {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 font-weight: bold;
                 background-color: #f7f7f7;
-                padding: 2rem;
+                padding: 2rem 1rem;
             }
 
             .month {
                 background-color: black;
-                font-size: 1.2rem;
+                font-size: 1rem;
                 color: white;
-                padding: 0.5rem 2rem;
+                padding: 0.5rem 1rem;
                 text-transform: uppercase;
             }
         }
@@ -106,11 +109,6 @@ export default {
         .details {
             padding-bottom: 3rem;
             border-bottom: 1px solid #f2f2f2;
-
-            h2 {
-                font-size: 2rem;
-                text-transform: capitalize;
-            }
 
             p {
                 line-height: 1.6;
@@ -120,7 +118,6 @@ export default {
             }
 
             .container-flex {
-                align-items: center;
 
                 span {
                     display: inline-block;

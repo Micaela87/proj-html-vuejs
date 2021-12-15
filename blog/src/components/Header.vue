@@ -3,7 +3,7 @@
     <section id=upper-header>
       <nav class="container">
         <!-- upper header with menu-->
-        <ul>
+        <ul class="align-items-center justify-flex-start">
           <li>Everything about Lifestyle, Travel and Gadgets!</li>
           <li v-for="(section, i) in upperNavbar" :key="i"><a href="#">{{ section.toUpperCase() }}</a></li>
         </ul>
@@ -16,7 +16,7 @@
     <section id="lower-header">
       <nav class="container">
         <!-- lower header with menu -->
-        <ul>
+        <ul class="align-items-center justify-flex-start">
           <li v-for="(topic, y) in lowerNavbar" :key="y"><a href="#">{{ topic.toUpperCase() }}</a></li>
         </ul>
         <font-awesome-icon :icon="['fas', 'search']" size="lg"/>
@@ -40,8 +40,7 @@ export default {
 // general rules
   ul {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    // justify-content: flex-start;
     height: 100%;
 
     li {

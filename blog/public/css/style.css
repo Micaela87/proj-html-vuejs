@@ -22,3 +22,26 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-flex-start {
+    justify-content: flex-start;
+}
+
+h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.3rem;
+}

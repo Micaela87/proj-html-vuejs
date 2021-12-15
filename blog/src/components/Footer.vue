@@ -9,12 +9,12 @@
       <div class="container container-flex">
         <div class="col">
           <h3>about the blog</h3>
-          <p v-for="(post, i) in aboutTheBlog" :key="i">{{ post }}</p>
+          <p v-for="(post, i) in footerMenu.aboutTheBlog" :key="i">{{ post }}</p>
           <span id="view-more">view more</span><font-awesome-icon :icon="['fas', 'chevron-right']" id="white-arrow"/>
         </div>
         <div class="col">
           <h3>recent posts</h3>
-          <div class="container-flex recent-posts" v-for="(post, y) in recentPosts" :key="y">
+          <div class="container-flex align-items-center recent-posts" v-for="(post, y) in footerMenu.recentPosts" :key="y">
             <img :src="require('@/assets/img/' + post.img)" :alt="post.title">
             <div>
               <h4>{{ post.title }}</h4>
@@ -24,7 +24,7 @@
         </div>
         <div class="col">
           <h3>recent comments</h3>
-          <div v-for="(comment, x) in recentComments" :key="x">
+          <div v-for="(comment, x) in footerMenu.recentComments" :key="x">
             <div class="comments">
               <font-awesome-icon :icon="['fas', 'chevron-right']" class="arrow-right" size="xs"/><span class="author">{{ comment.author }}</span> commented on <span class="post-commented">{{ comment.postCommented }}</span>
             </div>
@@ -33,22 +33,22 @@
         </div>
         <div class="col">
           <h3>categories</h3>
-          <div class="categories-container">
-            <a v-for="(category, z) in categories" :key="z" class="category" href="#">{{ category.toUpperCase() }}</a>
+          <div class="categories-container justify-flex-start">
+            <a v-for="(category, z) in footerMenu.allCategories" :key="z" class="category" href="#">{{ category.toUpperCase() }}</a>
           </div>
         </div>
       </div>
     </section>
     <section id="lower-footer">
       <!-- lower footer -->
-      <div class="container container-flex">
-        <div class="container-flex">
+      <div class="container container-flex align-items-center">
+        <div class="container-flex align-items-center">
           <img src="../assets/img/logo-footer.png" alt="blog logo">
           <span>&copy; Copyright 2020 All Rights Reserved</span>
         </div>
-        <div>
+        <div class="lower-navbar">
           <ul>
-            <li v-for="(menu, k) in lowerNavbar" :key="k"><a href="#"><font-awesome-icon :icon="['fas', 'chevron-right']" class="arrow-right" size="xs"/>{{ menu }}</a></li>
+            <li v-for="(menu, k) in footerMenu.lowerNavbar" :key="k"><a href="#"><font-awesome-icon :icon="['fas', 'chevron-right']" class="arrow-right" size="xs"/>{{ menu }}</a></li>
           </ul>
         </div>
       </div>
@@ -63,11 +63,7 @@
 export default {
   name: 'Footer',
   props: {
-    aboutTheBlog: Array,
-    recentPosts: Array,
-    recentComments: Array,
-    categories: Array,
-    lowerNavbar: Array
+    footerMenu: Object
   }
 }
 </script>
@@ -80,6 +76,8 @@ export default {
 
     .label {
       position: relative;
+      top: -6rem;
+      left: 6rem;
 
       .shadow {
           width: 0; 
@@ -89,15 +87,15 @@ export default {
           border-top: 20px solid transparent;
 
           position: absolute;
-          top: -6rem;
-          left: 6rem;
+          top: 0;
+          left: 0;
       }
 
       .get-in-touch {
         font-family: 'Shadows Into Light';
         position: absolute;
-        top: -6rem;
-        left: 9.5rem;
+        top: 0;
+        left: 3.5rem;
         font-size: 2rem;
         color: white;
         background-color: #0088cc;
@@ -108,23 +106,17 @@ export default {
 
     .col {
       width: 23%;
-      margin: 2rem 1rem 2rem 0;
+      margin: 2rem 0;
       font-size: 1.2rem;
       color: #a5a7a9;
 
-      .container-flex {
-        align-items: center;
-      }
-
       h3, #view-more {
         color: white;
-        font-size: 1.3rem;
-        text-transform: uppercase;
       }
 
       #view-more {
-        font-size: 1.2rem;
-        font-weight: bolder;
+        font-weight: bold;
+        text-transform: uppercase;
       }
 
       p {
@@ -182,7 +174,6 @@ export default {
       .categories-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
       }
 
       .category {
@@ -190,7 +181,7 @@ export default {
         background-color: #000000;
         color: white;
         padding: 0.5rem 2rem;
-        font-weight: bolder;
+        font-weight: bold;
         margin-right: 1rem;
         margin-top: 1rem;
         text-decoration: none;
@@ -207,7 +198,6 @@ export default {
     position: relative;
 
     .container-flex {
-      align-items: center;
       height: 100%;
     }
 
@@ -220,17 +210,20 @@ export default {
       margin-right: 0.5rem;
     }
 
-    ul {
-      margin-right: 13rem;
+    .lower-navbar {
+      width: 23%;
 
-      li {
-        display: inline-block;
-        margin-right: 1rem;
+      ul {
 
-          a {
-          color: #535558;
-          font-size: 1.2rem;
-          text-decoration: none;
+        li {
+          display: inline-block;
+          margin-right: 1rem;
+
+            a {
+            color: #535558;
+            font-size: 1.2rem;
+            text-decoration: none;
+          }
         }
       }
     }

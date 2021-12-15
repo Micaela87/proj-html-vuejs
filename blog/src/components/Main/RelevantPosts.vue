@@ -10,9 +10,9 @@
         </div>
         <div class="col">
             <h3>featured posts</h3>
-            <MainPosts :singlePost="featuredPost"/>
+            <MainPosts :singlePost="featuredPost" :onlyOnePost="true"/>
             <h3>featured author</h3>
-            <div class="container-flex">
+            <div class="container-flex align-items-center">
                 <img :src="require('@/assets/img/' + featuredAuthor.img)" :alt="featuredAuthor.name">
                 <div>
                     <h4>{{ featuredAuthor.name }}</h4>
@@ -43,7 +43,7 @@ export default {
                 "category": "photography, travel",
                 "thumb_img": "blog-55.jpg",
                 "img": ["blog-55-1.jpg"],
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "1000"
@@ -55,7 +55,7 @@ export default {
                 "category": "sports, business",
                 "thumb_img": "blog-56.jpg",
                 "img": ["blog-56-1.jpg"],
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "999"
@@ -67,7 +67,7 @@ export default {
                 "category": "fashion, lifestyle",
                 "thumb_img": "blog-57.jpg",
                 "img": "",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "998"
@@ -79,7 +79,7 @@ export default {
                 "category": "travel, lifestyle",
                 "thumb_img": "blog-58.jpg",
                 "img": ["blog-58-1.jpg"],
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "997"
@@ -91,7 +91,7 @@ export default {
                 "category": "travel, lifestyle",
                 "thumb_img": "blog-59.jpg",
                 "img": "",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "996"
@@ -105,7 +105,7 @@ export default {
                 "category": "lifestyle",
                 "thumb_img": "blog-65.jpg",
                 "img": "",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "0"
@@ -117,7 +117,7 @@ export default {
                 "category": "recipes",
                 "thumb_img": "blog-66-1.jpg",
                 "img": "blog-66.jpg",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "0"
@@ -129,7 +129,7 @@ export default {
                 "category": "gadgets, lifestyle",
                 "thumb_img": "blog-67.jpg",
                 "img": "",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "0"
@@ -141,7 +141,7 @@ export default {
                 "category": "gadgets, lifestyle",
                 "thumb_img": "blog-68.jpg",
                 "img": "",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "0"
@@ -153,7 +153,7 @@ export default {
                 "category": "recipes",
                 "thumb_img": "blog-69.jpg",
                 "img": "",
-                "date": "12 January, 2019",
+                "date": "January 12, 2019",
                 "author": "john doe",
                 "comments": "12",
                 "likes": "0"
@@ -183,14 +183,10 @@ export default {
         width: 32%;
 
         h3 {
-            text-transform: uppercase;
-            font-size: 1.6rem;
-            font-weight: bold;
             padding: 1rem 0;
         }
 
         .container-flex {
-            align-items: center;
 
             img {
                 width: 10rem;
@@ -199,7 +195,6 @@ export default {
 
             h4 {
                 text-transform: capitalize;
-                font-size: 1.4rem;
                 font-weight: bold;
                 padding: 0.5rem 0;
             }
