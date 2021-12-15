@@ -12,7 +12,7 @@
               <div class="month">{{ month }}</div>
           </div>
           <div class="details">
-            <h2>{{ postOverview.title }}</h2>
+            <h2>{{ postOverview.post_title }}</h2>
             <p>{{ content }} [...]</p>
             <div class="container-flex">
                 <div>
@@ -23,11 +23,11 @@
                     </span>
                     <span>
                         <font-awesome-icon :icon="['far', 'folder']" size="1x" class="icon"/>
-                        <a href="">{{ postOverview.categories }}</a>
+                        <a href="">{{ postOverview.category }}</a>
                     </span>
                     <span>
                         <font-awesome-icon :icon="['far', 'comments']" size="1x" class="icon"/>
-                        <a href="">{{ postOverview.numberOfComments }} comments</a>
+                        <a href="">{{ postOverview.comments }} comments</a>
                     </span>
                 </div>
                 <button>read more</button>
@@ -53,7 +53,7 @@ export default {
           return month[1].substring(0, 3);
       },
       content() {
-          return this.postOverview.content.substring(0, 5000)
+          return this.postOverview.post_content.substring(0, 5000)
       }
   }
 }

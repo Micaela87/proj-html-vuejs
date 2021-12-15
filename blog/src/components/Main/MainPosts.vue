@@ -1,11 +1,11 @@
 <template>
         <div class="post-card">
-            <img :src="require('@/assets/img/' + singlePost.img)" :alt="singlePost.title">
+            <img :src="require('@/assets/img/' + singlePost.img)" :alt="singlePost.post_title">
             <div class="overlay">
                 <div class="post-content">
                     <div class="category">{{ singlePost.category }}</div>
-                    <h2>{{ singlePost.title }}</h2>
-                    <p>{{ singlePost.briefDescription }}</p>
+                    <h2>{{ singlePost.post_title }}</h2>
+                    <p>{{ singlePost.post_content.substring(0, 200) }}</p>
                 </div>
             </div>
         </div>

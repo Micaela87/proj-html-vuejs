@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="container-flex" v-for="(post, i) in posts" :key="i" :class="i < posts.length - 1 ? 'with-border' : ''">
-            <img :src="require('@/assets/img/' + post.img)" :alt="post.title">
+            <img :src="require('@/assets/img/' + post.thumb_img)" :alt="post.post_title">
             <div>
-                <h4>{{ post.title }}</h4>
+                <h4>{{ post.post_title }}</h4>
                 <span>{{ post.date }}</span>
             </div>
         </div>
@@ -15,7 +15,7 @@ export default {
   name: 'PopularRecentPosts',
   props: {
       posts: Array
-  }
+  },
 }
 </script>
 

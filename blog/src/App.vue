@@ -40,12 +40,12 @@ export default {
         ],
         recentComments: [
           {
-            author: 'John Doe ',
+            author: 'John Doe',
             postCommented: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
             date: '12:55 AM Dec 19th'
           },
           {
-            author: 'John Doe ',
+            author: 'John Doe',
             postCommented: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
             date: '12:55 AM Dec 19th'
           }

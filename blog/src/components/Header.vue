@@ -64,12 +64,10 @@ export default {
       
       ul li {
       margin: 0 1.2rem 0 0;
-      // list-style-type: none;
       color: white;
       font-size: 1.4rem;
 
         a {
-          // text-decoration: none;
           color: white;
         }
       }
@@ -96,10 +94,10 @@ export default {
       align-items: center;
       
       ul li {
-        margin: 0 2.5rem 0 0;
+        margin-right: 3.5rem;
 
         a {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
           font-weight: bold;
           color: black;
         }

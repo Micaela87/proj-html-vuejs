@@ -68,8 +68,8 @@
 
 <script>
 import MainPosts from "./MainPosts.vue";
-import RelevantPosts from "./RelevantPosts.vue";
 import PostOverview from "./PostOverview.vue";
+import RelevantPosts from "./RelevantPosts.vue";
 
 export default {
   name: 'Main',
@@ -80,90 +80,261 @@ export default {
   },
   data() {
       return {
-          posts: [
-              {
-                  category: 'photography',
-                  title: 'how to take better concert pictures in 30 seconds',
-                  briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-                  img: 'blog-46.jpg'
-              },
-              {
-                  category: 'gadgets',
-                  title: 'gadgets that make your smartphone even smarter',
-                  briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-                  img: 'blog-47.jpg'
-              },
-              {
-                  category: 'travel',
-                  title: '20 top-rated tourist attractions in manhattan',
-                  briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-                  img: 'blog-48.jpg'
-              },
-              {
-                  category: 'lifestyle',
-                  title: 'the best way to ride a motorcycle',
-                  briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-                  img: 'blog-49.jpg'
-              },
-              {
-                  category: 'travel',
-                  title: '5 fun things to do at the beach',
-                  briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-                  img: 'blog-50.jpg'
-              },
-              {
-                  category: 'recipes',
-                  title: 'amazingly fresh fruit and herb drinks for summer',
-                  briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-                  img: 'blog-51.jpg'
-              }
-          ],
+          // posts: [
+          //     {
+          //         category: 'photography',
+          //         title: 'how to take better concert pictures in 30 seconds',
+          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+          //         img: 'blog-46.jpg'
+          //     },
+          //     {
+          //         category: 'gadgets',
+          //         title: 'gadgets that make your smartphone even smarter',
+          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+          //         img: 'blog-47.jpg'
+          //     },
+          //     {
+          //         category: 'travel',
+          //         title: '20 top-rated tourist attractions in manhattan',
+          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+          //         img: 'blog-48.jpg'
+          //     },
+          //     {
+          //         category: 'lifestyle',
+          //         title: 'the best way to ride a motorcycle',
+          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+          //         img: 'blog-49.jpg'
+          //     },
+          //     {
+          //         category: 'travel',
+          //         title: '5 fun things to do at the beach',
+          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+          //         img: 'blog-50.jpg'
+          //     },
+          //     {
+          //         category: 'recipes',
+          //         title: 'amazingly fresh fruit and herb drinks for summer',
+          //         briefDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
+          //         img: 'blog-51.jpg'
+          //     }
+          // ],
           categories: ['gadgets', 'photography', 'lifestyle', 'fashion', 'recipes', 'travel'],
-          postsOverview: [
+          allPosts: [
             {
-              img: ['blog-54.jpg'],
-              date: '12 January',
-              title: 'how to make friends as a grown-up',
-              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-              author: 'john doe',
-              categories: 'lifestyle, travel',
-              numberOfComments: '12'
+              "id": "1",
+              "post_title": "How To Make Friends As A Grown-Up",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "lifestyle, travel",
+              "thumb_img": "",
+              "img": ["blog-54.jpg"],
+              "date": "12 January, 2019 01:00",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
             },
             {
-              img: ['blog-55-1.jpg'],
-              date: '12 January',
-              title: 'simple ways to have a pretty face',
-              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-              author: 'john doe',
-              categories: 'photography, travel',
-              numberOfComments: '12'
+              "id": "2",
+              "post_title": "Simple Ways To Have A Pretty Face",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "photography, travel",
+              "thumb_img": "blog-55.jpg",
+              "img": ["blog-55-1.jpg"],
+              "date": "12 January, 2019 01:10",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "1000"
             },
             {
-              img: ['blog-56-1.jpg'],
-              date: '12 January',
-              title: 'ranking the greatest players in basketball',
-              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-              author: 'john doe',
-              categories: 'sports, business',
-              numberOfComments: '12'
+              "id": "3",
+              "post_title": "Ranking The Greatest Players In Basketball",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "sports, business",
+              "thumb_img": "blog-56.jpg",
+              "img": ["blog-56-1.jpg"],
+              "date": "12 January, 2019 01:20",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "999"
             },
             {
-              img: ['blog-58-1.jpg'],
-              date: '12 January',
-              title: 'top camper trailer towing tips',
-              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-              author: 'john doe',
-              categories: 'travel, lifestyle',
-              numberOfComments: '12'
+              "id": "4",
+              "post_title": "Top Camper Trailer Towing Tips",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "travel, lifestyle",
+              "thumb_img": "blog-58.jpg",
+              "img": ["blog-58-1.jpg"],
+              "date": "12 January, 2019 01:30",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "997"
             },
             {
-              img: ['blog-13.jpg', 'blog-16.jpg', 'blog-20.jpg', 'blog-23.jpg', 'blog-29.jpg', 'blog-40.jpg'],
-              date: '8 January',
-              title: '10 best travel tips after 5 years traveling the world',
-              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!',
-              author: 'john doe',
-              categories: 'travel, lifestyle',
-              numberOfComments: '12'
+              "id": "5",
+              "post_title": "10 Best Travel Tips After 5 Years Traveling The World",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "travel, lifestyle",
+              "thumb_img": "",
+              "img": ["blog-13.jpg", "blog-16.jpg", "blog-20.jpg", "blog-23.jpg", "blog-29.jpg", "blog-40.jpg"],
+              "date": "8 January, 2019 01:40",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
+            },
+            {
+              "id": "6",
+              "post_title": "4 Ways To Look Cool In Glasses",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "fashion, lifestyle",
+              "thumb_img": "blog-57.jpg",
+              "img": "",
+              "date": "12 January, 2019 01:50",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "998"
+            },
+            {
+              "id": "7",
+              "post_title": "5 Lovely Walks In New York",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "travel, lifestyle",
+              "thumb_img": "blog-59.jpg",
+              "img": "",
+              "date": "12 January, 2019 02:00",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "996"
+            },
+            {
+              "id": "8",
+              "post_title": "Main Reasons To Stop Texting And Driving",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "lifestyle",
+              "thumb_img": "blog-65.jpg",
+              "img": "",
+              "date": "12 January, 2019 23:59",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
+            },
+            {
+              "id": "9",
+              "post_title": "Tips To Help You Quickly Prepare Your Lunch",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "recipes",
+              "thumb_img": "blog-66-1.jpg",
+              "img": "",
+              "date": "12 January, 2019 23:58",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
+            },
+            {
+              "id": "10",
+              "post_title": "Why Should I Buy A Smartwatch?",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "gadgets, lifestyle",
+              "thumb_img": "blog-67.jpg",
+              "img": "",
+              "date": "12 January, 2019 23:57",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
+            },
+            {
+              "id": "11",
+              "post_title": "The Best Augmented Reality Smartglasses",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "gadgets, lifestyle",
+              "thumb_img": "blog-68.jpg",
+              "img": "",
+              "date": "12 January, 2019 23:56",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
+            },
+            {
+              "id": "12",
+              "post_title": "12 Healthiest Foods To Eat For Breakfast",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "recipes",
+              "thumb_img": "blog-69.jpg",
+              "img": "",
+              "date": "12 January, 2019 23:55",
+              "author": "john doe",
+              "comments": "12",
+              "likes": "0"
+            },
+            {
+              "id": "13",
+              "post_title": "How To Take Better Concert Pictures In 30 Seconds",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "photography",
+              "thumb_img": "",
+              "img": "blog-46.jpg",
+              "date": "",
+              "author": "",
+              "comments": "",
+              "likes": ""
+            },
+            {
+              "id": "14",
+              "post_title": "Gadgets That Make Your Smartphone Even Smarter",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "gadgets",
+              "thumb_img": "",
+              "img": "blog-47.jpg",
+              "date": "",
+              "author": "",
+              "comments": "",
+              "likes": ""
+            },
+            {
+              "id": "15",
+              "post_title": "20 Top-Rated Tourist Attractions In Manhattan",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "travel",
+              "thumb_img": "",
+              "img": "blog-48.jpg",
+              "date": "",
+              "author": "",
+              "comments": "",
+              "likes": ""
+            },
+            {
+              "id": "16",
+              "post_title": "The Best Way To Ride A Motorcycle",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "lifestyle",
+              "thumb_img": "",
+              "img": "blog-49.jpg",
+              "date": "",
+              "author": "",
+              "comments": "",
+              "likes": ""
+            },
+            {
+              "id": "17",
+              "post_title": "5 Fun Things To Do At The Beach",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "travel",
+              "thumb_img": "",
+              "img": "blog-50.jpg",
+              "date": "",
+              "author": "",
+              "comments": "",
+              "likes": ""
+            },
+            {
+              "id": "18",
+              "post_title": "Amazingly Fresh Fruit And Herb Drinks For Summer",
+              "post_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fuga ad nisi molestiae unde deleniti minima neque excepturi officia optio, quas qui, commodi, odio aspernatur corrupti incidunt a explicabo officiis!",
+              "category": "recipes",
+              "thumb_img": "",
+              "img": "blog-51.jpg",
+              "date": "",
+              "author": "",
+              "comments": "",
+              "likes": ""
             }
           ],
           twitterPosts: [
@@ -178,6 +349,14 @@ export default {
           ],
           instagramTags: ['design', 'brands', 'video', 'business', 'travel']
       };
+  },
+  computed: {
+    posts() {
+      return this.allPosts.slice(12);
+    },
+    postsOverview() {
+      return this.allPosts.slice(0, 5);
+    }
   }
 }
 </script>
@@ -212,13 +391,15 @@ export default {
           text-align: center;
           color: white;
           background-color: black;
-          padding: 2rem 0;
+          padding: 1.5rem 0;
           font-size: 1.5rem;
+          font-weight: bold;
+          border: 10px solid black;
       }
     }
 
-    span:hover {
-      border: 10px solid #0088cc;
+    a:hover {
+      border: 10px solid #005580;
     }
   }
 
