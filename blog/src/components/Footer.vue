@@ -102,7 +102,6 @@ export default {
         color: white;
         background-color: #0088cc;
         padding: 1rem 1.5rem;
-        // height: 10rem;
       }
 
     }

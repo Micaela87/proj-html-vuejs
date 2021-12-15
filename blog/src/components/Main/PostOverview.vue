@@ -149,7 +149,7 @@ export default {
                     text-transform: uppercase;
                     font-size: 1rem;
                     padding: 0.5rem;
-                    font-family: 'Roboto', sans-serif;
+                    font-family: 'Montserrat', sans-serif;
                 }
             }
             
